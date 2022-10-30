@@ -27,4 +27,34 @@ public class LocationCriterion implements Criterion {
 		return false;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((currenLocation == null) ? 0 : currenLocation.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(maxDistance);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		LocationCriterion other = (LocationCriterion) obj;
+		if (currenLocation == null) {
+			if (other.currenLocation != null)
+				return false;
+		} else if (!currenLocation.equals(other.currenLocation))
+			return false;
+		if (Double.doubleToLongBits(maxDistance) != Double.doubleToLongBits(other.maxDistance))
+			return false;
+		return true;
+	}
+
 }

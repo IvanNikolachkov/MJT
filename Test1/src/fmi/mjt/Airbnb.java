@@ -1,17 +1,16 @@
 package fmi.mjt;
 
+import java.util.Arrays;
+
 import fmi.mjt.accommodation.Bookable;
 import fmi.mjt.filter.Criterion;
 
 public class Airbnb implements AirbnbAPI {
 
-	Bookable[] bookables;
+	private Bookable[] bookables;
 
 	public Airbnb(Bookable[] accommodations) {
-		this.bookables = new Bookable[accommodations.length];
-		for (int i = 0; i < accommodations.length; i++) {
-			bookables[i] = accommodations[i];
-		}
+		this.bookables = accommodations;
 	}
 
 	@Override
@@ -73,4 +72,27 @@ public class Airbnb implements AirbnbAPI {
 		}
 		return finalFilteredAcc;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(bookables);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Airbnb other = (Airbnb) obj;
+		if (!Arrays.equals(bookables, other.bookables))
+			return false;
+		return true;
+	}
+
 }

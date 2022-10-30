@@ -11,4 +11,5 @@ public class Villa extends Property {
 		this.id = "VIL-" + numOfInstances;
 		numOfInstances++;
 	}
+
 }
