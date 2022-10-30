@@ -84,17 +84,6 @@ abstract class Property implements Bookable {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (location == null) {
-			if (other.location != null)
-				return false;
-		} else if (!location.equals(other.location))
-			return false;
-		if (Double.doubleToLongBits(pricePerNight) != Double.doubleToLongBits(other.pricePerNight))
-			return false;
-		if (booked != other.booked)
-			return false;
-		if (days != other.days)
-			return false;
 		return true;
 	}
 }
