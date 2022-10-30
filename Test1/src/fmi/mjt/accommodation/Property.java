@@ -61,12 +61,6 @@ abstract class Property implements Bookable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((location == null) ? 0 : location.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(pricePerNight);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + (booked ? 1231 : 1237);
-		result = prime * result + days;
 		return result;
 	}
 
